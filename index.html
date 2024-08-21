@@ -65,25 +65,29 @@
             weather_icon.src = "clouds.png";
             bg.style.backgroundColor = "grey";
         }
+        else if(data.weather[0].main == "Clear"){
+            weather_icon.src = "clear.png";
+            bg.style.backgroundColor = "skyblue";
+        }
         else if(data.weather[0].main == "Haze"){
             weather_icon.src = "clear.png";
             bg.style.backgroundColor = "skyblue";
         }
         else if(data.weather[0].main == "Rain"){
             weather_icon.src = "rain.png";
-            bg.background = "#C4D3DF";
+            bg.style.backgroundColor = "#C4D3DF";
         }
         else if(data.weather[0].main == "Drizzle"){
             weather_icon.src = "drizzle.png";
-            bg.background = "#808080";
+            bg.style.backgroundColor = "#808080";
         }
         else if(data.weather[0].main == "Mist"){
             weather_icon.src = "mist.png";
-            bg.background = "#FFFFE0";
+            bg.style.backgroundColor = "#FFFFE0";
         }
         else if(data.weather[0].main == "Snow"){
             weather_icon.src = "snow.png";
-            bg.background = "#F3F6FB";
+            bg.style.backgroundColor = "#F3F6FB";
         }
         document.querySelector(".weather").style.display = "block";
         document.querySelector(".error").style.display = "none";
