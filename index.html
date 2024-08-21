@@ -61,32 +61,79 @@
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         console.log(weather_icon);
         console.log(bg);
+        const sunriseTime = data.sys.sunrise; 
+        const sunsetTime = data.sys.sunset; 
+        const currentTime = Math.floor(new Date().getTime() / 1000);
         if(data.weather[0].main == "Clouds"){
-            weather_icon.src = "clouds.png";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "clouds.png";
+            }
+            else{
+                weather_icon.src = "Night with clouds.png";
+            }
             bg.style.backgroundColor = "grey";
         }
         else if(data.weather[0].main == "Clear"){
-            weather_icon.src = "clear.png";
-            bg.style.backgroundColor = "skyblue";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "clear.png";
+                bg.style.backgroundColor = "skyblue";
+            }
+            else{
+                weather_icon.src = "Night.png";
+                bg.style.backgroundColor = "black";
+            }
         }
         else if(data.weather[0].main == "Haze"){
-            weather_icon.src = "clear.png";
-            bg.style.backgroundColor = "skyblue";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "clear.png";
+                bg.style.backgroundColor = "skyblue";
+            }
+            else{
+                weather_icon.src = "Night.png";
+                bg.style.backgroundColor = "black";
+            }
         }
         else if(data.weather[0].main == "Rain"){
-            weather_icon.src = "rain.png";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "rain.png";
+            }
+            else{
+                weather_icon.src = "Night with rain.png";
+            }
             bg.style.backgroundColor = "#C4D3DF";
         }
         else if(data.weather[0].main == "Drizzle"){
-            weather_icon.src = "drizzle.png";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "drizzle.png";
+            }
+            else{
+                weather_icon.src = "Night with drizzle.png";
+            }
             bg.style.backgroundColor = "#808080";
         }
         else if(data.weather[0].main == "Mist"){
-            weather_icon.src = "mist.png";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "mist.png";
+            }
+            else{
+                weather_icon.src = "Night with mist.png";
+            }
             bg.style.backgroundColor = "#FFFFE0";
         }
         else if(data.weather[0].main == "Snow"){
-            weather_icon.src = "snow.png";
+            let isDay = currentTime >= sunriseTime && currentTime < sunsetTime;
+            if(isDay){
+                weather_icon.src = "snow.png";
+            }
+            else{
+                weather_icon.src = "Night with snow.png";
+            }
             bg.style.backgroundColor = "#F3F6FB";
         }
         document.querySelector(".weather").style.display = "block";
